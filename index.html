@@ -1,53 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roland | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roland | Dev Portfolio</title>
+<style>
+/* ===== Reset & Fonts ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#0a0a0a;color:#f0f0f0;line-height:1.6;transition:background 0.5s,color 0.5s;}
+
+/* ===== NAVBAR ===== */
+header{position:sticky;top:0;z-index:100;background:#0a0a0a;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);}
+header h1{color:#1e90ff;font-size:24px;}
+nav button{background:none;border:none;color:#f0f0f0;font-size:16px;margin-left:15px;cursor:pointer;transition:color 0.3s;}
+nav button.active, nav button:hover{color:#1e90ff;}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 20px;max-width:1000px;margin:auto;opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
+section.visible{opacity:1;transform:translateY(0);}
+
+/* ===== HERO ===== */
+.hero{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100vh;}
+.hero h1{font-size:3rem;margin-bottom:10px;animation:fadeIn 1s ease forwards;}
+.hero p{font-size:1.5rem;margin-bottom:20px;animation:fadeIn 1.5s ease forwards;}
+.hero .btn{padding:14px 30px;border-radius:30px;background:#1e90ff;color:#0a0a0a;text-decoration:none;font-weight:600;font-size:16px;transition:all 0.3s;}
+.hero .btn:hover{transform:scale(1.05);background:#0a75d6;}
+
+/* ===== PROJECT CARDS ===== */
+.project-card{background:#111;padding:20px;border-radius:15px;margin-top:20px;transition:all 0.3s;box-shadow:0 2px 8px rgba(30,144,255,0.2);}
+.project-card:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 8px 20px rgba(30,144,255,0.5);}
+.project-card h3{color:#1e90ff;margin-bottom:10px;}
+.project-card p{color:#ccc;margin-bottom:10px;}
+.project-card a{color:#1e90ff;text-decoration:none;font-weight:600;transition:color 0.3s;}
+.project-card a:hover{color:#63b3ed;}
+
+/* ===== SKILLS ===== */
+.skills ul{display:flex;flex-wrap:wrap;gap:15px;list-style:none;margin-top:20px;}
+.skills li{background:#111;padding:10px 15px;border-radius:20px;box-shadow:0 2px 6px rgba(30,144,255,0.3);transition:all 0.3s;}
+.skills li:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(30,144,255,0.5);}
+
+/* ===== CONTACT ===== */
+.contact p{margin-top:10px;color:#ccc;}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+</style>
 </head>
 <body>
 
-  <header class="hero">
-    <h1>Hi, I’m Roland 👋</h1>
-    <p>Frontend Web Developer</p>
-    <a href="#projects" class="btn">View My Work</a>
-  </header>
+<header>
+  <h1>Roland</h1>
+  <nav>
+    <button class="active" onclick="scrollToSection('hero')">Home</button>
+    <button onclick="scrollToSection('projects')">Projects</button>
+    <button onclick="scrollToSection('skills')">Skills</button>
+    <button onclick="scrollToSection('contact')">Contact</button>
+  </nav>
+</header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m an 18-year-old web developer who enjoys building clean,
-      modern websites and music platforms inspired by Apple Music.
-    </p>
-  </section>
+<section class="hero" id="hero">
+  <h1>Hi, I’m Roland 👋</h1>
+  <p>Frontend Web Developer & Designer</p>
+  <a href="#projects" class="btn">View My Work</a>
+</section>
 
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
+<section class="about" id="about">
+  <h2>About Me</h2>
+  <p>I’m an 18-year-old web developer who loves building smooth, modern websites inspired by Apple Music and Google-level designs. I code clean, responsive interfaces and focus on great UX.</p>
+</section>
 
-    <div class="project-card">
-      <h3>Music Streaming Website</h3>
-      <p>An Apple Music–style website with previews, playlists and search.</p>
-      <a href="https://rolandoluwaseun4.github.io/lyrics---website-/" target="_blank">
-        View Live
-      </a>
-    </div>
-  </section>
+<section class="projects" id="projects">
+  <h2>Projects</h2>
+  <div class="project-card">
+    <h3>Music Streaming Website</h3>
+    <p>An Apple Music–style site with search, previews, playlists, and smooth UI animations.</p>
+    <a href="https://rolandoluwaseun4.github.io/lyrics---website-/" target="_blank">View Live</a>
+  </div>
+  <div class="project-card">
+    <h3>Portfolio Prototype</h3>
+    <p>This very portfolio website showcasing smooth animations, dark/blue theme, and modern design.</p>
+  </div>
+</section>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>GitHub</li>
-    </ul>
-  </section>
+<section class="skills" id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>GitHub</li>
+    <li>Responsive Design</li>
+    <li>UX/UI Design</li>
+  </ul>
+</section>
 
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: yourname@email.com</p>
-  </section>
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>Email: yourname@email.com</p>
+</section>
+
+<script>
+/* ===== SMOOTH SCROLL ===== */
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* ===== FADE-IN ON SCROLL ===== */
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+sections.forEach(sec=>observer.observe(sec));
+</script>
 
 </body>
 </html>
